@@ -6,5 +6,5 @@ Enhanced components for popular framework react-admin. Helps reducing the stylin
 
 ### Layouts
 Layout components which allow building custom Show Layouts using unlimited nesting of `material-ui`'s `Box` or `Gird` components.
-- BoxedShowLayout
-- GridShowLayout
+- [BoxedShowLayout](https://github.com/ValentinnDimitroff/ra-compact-ui/blob/master/src/show/BoxedShowLayout.js)
+- [GridShowLayout](https://github.com/ValentinnDimitroff/ra-compact-ui/blob/master/src/show/GridShowLayout.js)
