@@ -25,21 +25,24 @@ const isLayoutComponent = (child, layoutComponentName) => {
         child.type.displayName === layoutComponentName)
 }
 
-const recursivelyFindField = ({ child, ...props }) => {
+const recursivelyFindField = ({ child, index, ...props }) => {
 
     if (isLayoutComponent(child, props.layoutComponentName)) {
         // Clone current layout element and continue traversing children
         return cloneElement(
             child,
             {
+                key: `RaShowLayoutKey-${index}`,
                 children: Children.count(child.props.children) > 1
                     ? child.props.children.map(innerChild =>
                         recursivelyFindField({
                             child: innerChild,
+                            index: index++,
                             ...props
                         }))
                     : recursivelyFindField({
                         child: child.props.children,
+                        index: index++,
                         ...props
                     })
             });
@@ -64,8 +67,11 @@ const CompactShowLayout = ({
     version,
     ...rest
 }) => {
+    const index = 0;
+
     return (
         <CardContentInner
+            aria-role=""
             className={className}
             key={version}
             {...sanitizeRestProps(rest)}
@@ -79,6 +85,7 @@ const CompactShowLayout = ({
                             record,
                             resource,
                             basePath,
+                            index,
                         }) : null
                 )
             }

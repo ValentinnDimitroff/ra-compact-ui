@@ -31,7 +31,7 @@ const RaField = ({
             ) : typeof field.type === 'string' ? (
                 field
             ) : (
-                        cloneElement(field, {
+                        React.cloneElement(field, {
                             record,
                             resource,
                             basePath,
