@@ -2,6 +2,17 @@
 Enhanced components for popular framework react-admin. Helps reducing the styling boilerplate code and eases layout customizations.
 
 
+## Installation
+
+Available as a npm package. You can install it (and its required dependencies) using:
+
+```sh
+npm install ra-compact-ui
+#or
+yarn add ra-compact-ui
+```
+
+
 ## Details View components
 
 ### Layouts
