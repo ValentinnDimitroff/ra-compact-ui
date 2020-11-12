@@ -1,7 +1,8 @@
 {
   "name": "ra-compact-ui",
   "version": "1.0.5",
-  "main": "lib/index",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "dependencies": {
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2"
@@ -26,8 +27,8 @@
   },
   "scripts": {
     "test": "jest",
-    "babel-transpile": "babel src -d lib",
-    "build": "rimraf ./lib && yarn babel-transpile"
+    "babel-transpile": "babel src -d dist",
+    "build": "rimraf ./dist && yarn babel-transpile"
   },
   "repository": "https://github.com/ValentinnDimitroff/ra-compact-ui.git",
   "author": "Valentin Dimitroff",
