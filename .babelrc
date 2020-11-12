@@ -1,0 +1,19 @@
+{
+    "presets": [
+        ["@babel/preset-env", {
+            "targets": {
+                "node": "current"
+            }
+        }],
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        ["@babel/plugin-transform-template-literals", {
+            "loose": true
+        }],
+        ["@babel/plugin-proposal-object-rest-spread", {
+            "loose": true,
+            "useBuiltIns": true
+        }]
+    ]
+}
