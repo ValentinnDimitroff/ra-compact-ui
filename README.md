@@ -1,6 +1,8 @@
 # ra-compact-ui
 Enhanced components for popular framework react-admin. Helps reducing the styling boilerplate code and eases layout customizations.
 
+[![npm version](https://img.shields.io/npm/v/ra-compact-ui.svg?style=flat-square)](https://www.npmjs.com/package/ra-compact-ui)
+[![npm downloads](https://img.shields.io/npm/dm/ra-compact-ui.svg?style=flat-square)](https://www.npmjs.com/package/ra-compact-ui)
 
 ## Installation
 
