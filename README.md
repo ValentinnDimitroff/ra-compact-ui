@@ -1,8 +1,14 @@
 # ra-compact-ui
-Enhanced components for popular framework react-admin. Helps reducing the styling boilerplate code and eases layout customizations.
+Enhanced styling components for popular framework [`react-admin`](https://github.com/marmelab/react-admin). 
+Why using? 
+ - reduces styling boilerplate code
+ - eases layout customizations 
+ - maintains native usage of built-in `react-admin` components
 
 [![npm version](https://img.shields.io/npm/v/ra-compact-ui.svg?style=flat-square)](https://www.npmjs.com/package/ra-compact-ui)
 [![npm downloads](https://img.shields.io/npm/dm/ra-compact-ui.svg?style=flat-square)](https://www.npmjs.com/package/ra-compact-ui)
+[![GitHub license](https://img.shields.io/github/license/ValentinnDimitroff/ra-compact-ui.svg)](https://github.com/ValentinnDimitroff/ra-compact-ui/blob/master/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/ValentinnDimitroff/ra-compact-ui/)
 
 ## Installation
 
@@ -80,3 +86,9 @@ const useStyles = makeStyles(theme => ({
 
 
 - [`GridShowLayout`](https://github.com/ValentinnDimitroff/ra-compact-ui/blob/master/src/details/GridShowLayout.js)
+
+## About Author
+
+An enthusiast in love with building software and likes to call it "the grown up's LEGO".
+
+If you enjoy the library and want to support me -> <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="vdimitroff" data-color="#79D6B5" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
