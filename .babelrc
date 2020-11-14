@@ -1,19 +1,14 @@
 {
     "presets": [
         ["@babel/preset-env", {
-            "targets": {
-                "node": "current"
-            }
+            "targets": "defaults"
         }],
         "@babel/preset-react"
     ],
     "plugins": [
-        ["@babel/plugin-transform-template-literals", {
-            "loose": true
-        }],
-        ["@babel/plugin-proposal-object-rest-spread", {
-            "loose": true,
-            "useBuiltIns": true
-        }]
+
+    ],
+    "ignore": ["**/__tests__", // ignore the whole test directory
+        "**/*.test.js" // ignore test files only
     ]
 }
