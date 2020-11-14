@@ -1,6 +1,6 @@
 {
   "name": "ra-compact-ui",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "dependencies": {
@@ -9,15 +9,13 @@
   },
   "peerDependencies": {
     "@material-ui/core": "^4.x",
-    "react": "^16.x",
+    "react": "^16.8.x",
     "react-admin": "^3.x",
     "react-dom": "^16.x"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
-    "@babel/plugin-transform-template-literals": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
     "@testing-library/jest-dom": "^5.11.5",
@@ -28,7 +26,8 @@
   "scripts": {
     "test": "jest",
     "babel-transpile": "babel src -d dist",
-    "build": "rimraf ./dist && yarn babel-transpile"
+    "build": "rimraf ./dist && yarn babel-transpile",
+    "prepublish": "yarn build"
   },
   "repository": "https://github.com/ValentinnDimitroff/ra-compact-ui.git",
   "author": "Valentin Dimitroff",
