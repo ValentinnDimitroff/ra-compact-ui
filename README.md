@@ -89,6 +89,7 @@ const useStyles = makeStyles(theme => ({
 
 ## About Author
 
-An enthusiast in love with building software and likes to call it "the grown up's LEGO".
+An enthusiast in love with building software who likes to call it "the grown up's LEGO".
 
-If you enjoy the library and want to support me -> <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="vdimitroff" data-color="#79D6B5" data-emoji="" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+If you enjoy the library and want to support me -> <a href="https://www.buymeacoffee.com/vdimitroff" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee" /></a>
+
