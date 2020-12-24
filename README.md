@@ -1,5 +1,8 @@
 # ra-compact-ui
 Enhanced styling components for popular framework [`react-admin`](https://github.com/marmelab/react-admin). 
+
+No extra dependencies are required except the ones react-admin is already using.
+
 Why using? 
  - reduces styling boilerplate code
  - eases layout customizations 
@@ -12,7 +15,7 @@ Why using?
 
 ## Installation
 
-Available as a npm package. You can install it (and its required dependencies) using:
+Available as a npm package. You can install it using:
 
 ```sh
 npm install ra-compact-ui
@@ -91,5 +94,5 @@ const useStyles = makeStyles(theme => ({
 
 An enthusiast in love with building software who likes to call it "the grown up's LEGO".
 
-If you enjoy the library and want to support me -> <a href="https://www.buymeacoffee.com/vdimitroff" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee" /></a>
+If you enjoy the library and want to support me, you can always <a href="https://www.buymeacoffee.com/vdimitroff" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee" /></a>
 
