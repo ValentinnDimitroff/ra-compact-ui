@@ -8,10 +8,11 @@ const RaField = ({
     record,
     resource,
     basePath,
+    ...props
 }) => {
     return (
         <div
-            key={field.props.source}
+            {...props}
             className={classnames(
                 `ra-field ra-field-${field.props.source}`,
                 field.props.className

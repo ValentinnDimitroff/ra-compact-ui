@@ -32,27 +32,30 @@ const recursivelyFindField = ({ child, index, ...props }) => {
         return cloneElement(
             child,
             {
-                key: `RaShowLayoutKey-${index}`,
+                key: `RaShowLayoutKey-${index++}`,
                 children: Children.count(child.props.children) > 1
                     ? child.props.children.map(innerChild =>
                         recursivelyFindField({
                             child: innerChild,
-                            index: index++,
+                            index: index,
                             ...props
                         }))
                     : recursivelyFindField({
                         child: child.props.children,
-                        index: index++,
+                        index: index,
                         ...props
                     })
             });
     }
 
+    const { layoutComponentName, ...rest } = props;
+
     // Non-layout element found
     return (
         <RaField
+            key={child.props.source}
             field={child}
-            {...props}
+            {...rest}
         />
     );
 }
@@ -99,7 +102,7 @@ export const compactShowLayoutPropTypes = {
     resource: PropTypes.string,
     version: PropTypes.number,
     children: PropTypes.node,
-    className: PropTypes.string,    
+    className: PropTypes.string,
     layoutComponentName: PropTypes.string,
 }
 
