@@ -4,6 +4,7 @@ import { CardContentInner } from 'react-admin';
 import RaField from './RaField';
 
 const EMPTY_LAYOUT_NODE_ERROR = "Layout node has no found children! Nesting layout components should always end with a ra-field of any type!"
+let count = 0;
 
 const sanitizeRestProps = ({
     children,
@@ -26,13 +27,14 @@ const isLayoutComponent = (child, layoutComponentName) => {
 }
 
 const recursivelyFindField = ({ child, index, ...props }) => {
-
+    count++;
+    
     if (isLayoutComponent(child, props.layoutComponentName)) {
         // Clone current layout element and continue traversing children
         return cloneElement(
             child,
             {
-                key: `RaShowLayoutKey-${index++}`,
+                key: `RaShowLayoutKey-${count}`,
                 children: Children.count(child.props.children) > 1
                     ? child.props.children.map(innerChild =>
                         recursivelyFindField({
@@ -70,8 +72,6 @@ const CompactShowLayout = ({
     version,
     ...rest
 }) => {
-    const index = 0;
-
     return (
         <CardContentInner
             aria-role=""
@@ -80,7 +80,7 @@ const CompactShowLayout = ({
             {...sanitizeRestProps(rest)}
         >
             {
-                Children.map(children, child =>
+                Children.map(children, (child, index) =>
                     child && isValidElement(child)
                         ? recursivelyFindField({
                             layoutComponentName,
@@ -88,7 +88,7 @@ const CompactShowLayout = ({
                             record,
                             resource,
                             basePath,
-                            index,
+                            index: index + 100,
                         }) : null
                 )
             }
