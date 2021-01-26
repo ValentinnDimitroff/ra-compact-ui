@@ -27,9 +27,9 @@ yarn add ra-compact-ui
 ## Details View components
 
 ### Layouts
-Layout components which allow building custom Show Layouts using unlimited nesting of `material-ui`'s `Box` or `Gird` components while maintaining native use of all t of the `react-admin` field-related components. Each layout can be used inside the `Show` component as well as inside the `TabbedShowLayout`'s `Tab` component.
+Layout components that allow building custom Show Layouts using unlimited nesting of `material-ui`'s `Box` or `Grid` components while maintaining native use of all of the `react-admin` field-related components. Each layout can be used inside the `Show` component as well as inside the `TabbedShowLayout`'s `Tab` component.
 
-**Important** - In order for the layouts to work properly you should use the provided wrappers of the `material-ui`'s layout components named relatively - `RaBox` and `RaGrid`. They receive and pass directly all the props provided by the `material-ui`'s api.
+**Important** - For the layouts to work properly you should use the provided wrappers of the `material-ui`'s layout components named relatively - `RaBox` and `RaGrid`. They receive and pass directly all the props provided by the `material-ui`'s api.
 
 Here are examples:
 - [`BoxedShowLayout`](https://github.com/ValentinnDimitroff/ra-compact-ui/blob/master/src/details/BoxedShowLayout.js)
