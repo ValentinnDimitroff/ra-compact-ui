@@ -1,0 +1,42 @@
+{
+    "clients": [{
+        "id": 1,
+        "name": "Marmelab"
+    }],
+    "projects": [{
+        "id": 1,
+        "name": "My Awesome Flexbox ShowLayout",
+        "progressStatus": "Done",
+        "priority": "Super Urgent",
+        "startDate": "06/11/2020",
+        "timeElapsed": "4 days",
+        "deadline": "12/11/2020",
+        "client_id": 1,
+        "manager_id": 1,
+        "product_owner_id": 2,
+        "marketing_specialist_id": 3,
+        "stages": [{
+            "date": "12/11/2020",
+            "description": "Create timeline and assign task",
+            "members": [{
+                "staff_id": 1
+            }]
+        }]
+    }],
+    "staff": [{
+            "id": 1,
+            "full_name": "Nick Houlden"
+        },
+        {
+            "id": 2,
+            "full_name": "Jason Smith"
+        },
+        {
+            "id": 3,
+            "full_name": "Eleonora Rosberg"
+        }
+    ],
+    "settings": {
+        "language": "english"
+    }
+}
