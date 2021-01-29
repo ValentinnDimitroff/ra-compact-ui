@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import classnames from 'classnames'
-import { Labeled } from 'react-admin'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import { Labeled } from 'react-admin';
 
 const sanitizeRestProps = ({
     layoutComponentName,
@@ -14,17 +14,17 @@ const RaField = ({
     resource,
     basePath,
     ...props
-}) => {
-    return (
-        <div
-            key={field.props.source}
-            className={classnames(
-                `ra-field ra-field-${field.props.source}`,
-                field.props.className
-            )}
-            {...sanitizeRestProps(props)}
-        >
-            {field.props.addLabel ? (
+}) => (
+    <div
+        key={field.props.source}
+        className={classnames(
+            `ra-field ra-field-${field.props.source}`,
+            field.props.className,
+        )}
+        {...sanitizeRestProps(props)}
+    >
+        {field.props.addLabel
+            ? (
                 <Labeled
                     record={record}
                     resource={resource}
@@ -38,21 +38,20 @@ const RaField = ({
             ) : typeof field.type === 'string' ? (
                 field
             ) : (
-                        React.cloneElement(field, {
-                            record,
-                            resource,
-                            basePath,
-                        })
-                    )}
-        </div>
-    );
-}
+                React.cloneElement(field, {
+                    record,
+                    resource,
+                    basePath,
+                })
+            )}
+    </div>
+);
 
 RaField.propTypes = {
     basePath: PropTypes.string,
     record: PropTypes.object,
     resource: PropTypes.string,
     field: PropTypes.object,
-}
+};
 
-export default RaField
+export default RaField;
