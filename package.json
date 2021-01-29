@@ -27,7 +27,7 @@
     "test": "jest",
     "babel-transpile": "babel src -d dist",
     "build": "rimraf ./dist && yarn babel-transpile",
-    "prepublish": "yarn build"
+    "prepare": "yarn build"
   },
   "repository": "https://github.com/ValentinnDimitroff/ra-compact-ui.git",
   "author": "Valentin Dimitroff",

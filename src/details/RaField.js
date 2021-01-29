@@ -3,6 +3,11 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { Labeled } from 'react-admin'
 
+const sanitizeRestProps = ({
+    layoutComponentName,
+    ...rest
+}) => rest;
+
 const RaField = ({
     field,
     record,
@@ -12,11 +17,12 @@ const RaField = ({
 }) => {
     return (
         <div
-            {...props}
+            key={field.props.source}
             className={classnames(
                 `ra-field ra-field-${field.props.source}`,
                 field.props.className
             )}
+            {...sanitizeRestProps(props)}
         >
             {field.props.addLabel ? (
                 <Labeled
