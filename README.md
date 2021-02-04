@@ -12,6 +12,7 @@ Why using?
 [![npm downloads](https://img.shields.io/npm/dm/ra-compact-ui.svg)](https://www.npmjs.com/package/ra-compact-ui)
 [![GitHub license](https://img.shields.io/github/license/ValentinnDimitroff/ra-compact-ui.svg)](https://github.com/ValentinnDimitroff/ra-compact-ui/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/ValentinnDimitroff/ra-compact-ui/)
+[![minzipped size](https://badgen.net/bundlephobia/minzip/ra-compact-ui)
 
 ## Installation
 
