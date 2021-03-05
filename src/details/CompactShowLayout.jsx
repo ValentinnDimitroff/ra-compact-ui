@@ -2,9 +2,7 @@ import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import { CardContentInner } from 'react-admin';
 import RaField from './RaField';
-import { cloneRecursively } from '../core';
-
-const EMPTY_LAYOUT_NODE_ERROR = 'Layout node has no found children! Nesting layout components should always end with a ra-field of any type!';
+import { cloneRecursively, isLayoutComponent } from '../core';
 
 const sanitizeRestProps = ({
     children,
@@ -17,14 +15,6 @@ const sanitizeRestProps = ({
     translate,
     ...rest
 }) => rest;
-
-const isLayoutComponent = (child, layoutComponentName) => {
-    if (child == null) {
-        throw EMPTY_LAYOUT_NODE_ERROR;
-    }
-
-    return child.type && child.type.displayName === layoutComponentName;
-};
 
 const CompactShowLayout = ({
     layoutComponentName,
