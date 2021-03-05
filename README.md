@@ -14,6 +14,8 @@ Why using?
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/ValentinnDimitroff/ra-compact-ui/)
 [![minzipped size](https://badgen.net/bundlephobia/minzip/ra-compact-ui)](https://bundlephobia.com/result?p=ra-compact-ui)
 
+Actively maintained and developed with monthly releases!
+
 ## Installation
 
 Available as a npm package. You can install it using:
