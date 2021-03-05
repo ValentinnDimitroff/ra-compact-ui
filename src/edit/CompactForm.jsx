@@ -1,13 +1,14 @@
-import React, { Children } from 'react';
+import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { FormWithRedirect } from 'ra-core';
 import { CardContentInner, FormInput, Toolbar } from 'react-admin';
+import { cloneRecursively, getComponentsNames, isLayoutComponent } from '../core';
 
 const CompactForm = (props) => (
     <FormWithRedirect
         {...props}
-        render={(formProps) => <SimpleFormView {...formProps} />}
+        render={(formProps) => <CompactFormView {...formProps} />}
     />
 );
 
@@ -31,7 +32,7 @@ CompactForm.propTypes = {
     sanitizeEmptyValues: PropTypes.bool,
 };
 
-const SimpleFormView = ({
+const CompactFormView = ({
     basePath,
     children,
     className,
@@ -50,46 +51,55 @@ const SimpleFormView = ({
     toolbar,
     undoable,
     variant,
+    layoutComponents,
     ...rest
-}) => (
-    <form
-        className={classnames('simple-form', className)}
-        {...sanitizeRestProps(rest)}
-    >
-        <Component>
-            {Children.map(
-                children,
-                (input) => input && (
-                    <FormInput
-                        basePath={basePath}
-                        input={input}
-                        record={record}
-                        resource={resource}
-                        variant={input.props.variant || variant}
-                        margin={input.props.margin || margin}
-                    />
-                ),
-            )}
-        </Component>
-        {toolbar
-            && React.cloneElement(toolbar, {
-                basePath,
-                handleSubmitWithRedirect,
-                handleSubmit,
-                invalid,
-                mutationMode,
-                pristine,
-                record,
-                redirect,
-                resource,
-                saving,
-                submitOnEnter,
-                undoable,
-            })}
-    </form>
-);
+}) => {
+    const layoutComponentsNamesArr = getComponentsNames(layoutComponents);
 
-SimpleFormView.propTypes = {
+    return (
+        <form
+            className={classnames('simple-form', className)}
+            {...sanitizeRestProps(rest)}
+        >
+            <Component>
+                {Children.map(
+                    children,
+                    (child) => cloneRecursively(
+                        child,
+                        (x) => isLayoutComponent(x, layoutComponentsNamesArr),
+                        (x) => (
+                            <FormInput
+                                input={x}
+                                basePath={basePath}
+                                record={record}
+                                resource={resource}
+                                variant={x.props.variant || variant}
+                                margin={x.props.margin || margin}
+                            />
+                        ),
+                    ),
+                )}
+            </Component>
+            {toolbar
+                && cloneElement(toolbar, {
+                    basePath,
+                    handleSubmitWithRedirect,
+                    handleSubmit,
+                    invalid,
+                    mutationMode,
+                    pristine,
+                    record,
+                    redirect,
+                    resource,
+                    saving,
+                    submitOnEnter,
+                    undoable,
+                })}
+        </form>
+    );
+};
+
+CompactFormView.propTypes = {
     basePath: PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
@@ -111,12 +121,13 @@ SimpleFormView.propTypes = {
     toolbar: PropTypes.element,
     undoable: PropTypes.bool,
     validate: PropTypes.func,
-    component: PropTypes.node,
+    component: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.node]),
     variant: PropTypes.string,
     margin: PropTypes.string,
+    layoutComponents: PropTypes.array,
 };
 
-SimpleFormView.defaultProps = {
+CompactFormView.defaultProps = {
     submitOnEnter: true,
     toolbar: <Toolbar />,
     component: CardContentInner,
