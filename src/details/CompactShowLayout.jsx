@@ -1,10 +1,10 @@
-import React, { Children, isValidElement, cloneElement } from 'react'
-import PropTypes from 'prop-types'
-import { CardContentInner } from 'react-admin'
-import RaField from './RaField'
+import React, { Children } from 'react';
+import PropTypes from 'prop-types';
+import { CardContentInner } from 'react-admin';
+import RaField from './RaField';
+import { cloneRecursively } from '../core';
 
-const EMPTY_LAYOUT_NODE_ERROR =
-    'Layout node has no found children! Nesting layout components should always end with a ra-field of any type!'
+const EMPTY_LAYOUT_NODE_ERROR = 'Layout node has no found children! Nesting layout components should always end with a ra-field of any type!';
 
 const sanitizeRestProps = ({
     children,
@@ -16,38 +16,15 @@ const sanitizeRestProps = ({
     initialValues,
     translate,
     ...rest
-}) => rest
+}) => rest;
 
 const isLayoutComponent = (child, layoutComponentName) => {
     if (child == null) {
-        throw EMPTY_LAYOUT_NODE_ERROR
+        throw EMPTY_LAYOUT_NODE_ERROR;
     }
 
-    return child.type && child.type.displayName === layoutComponentName
-}
-
-const recursivelyFindField = ({ child, ...props }) => {
-    if (isLayoutComponent(child, props.layoutComponentName)) {
-        // Clone current layout element and continue traversing children
-        return cloneElement(child, {
-            children:
-                Children.count(child.props.children) > 1
-                    ? child.props.children.map((innerChild) =>
-                          recursivelyFindField({
-                              child: innerChild,
-                              ...props,
-                          })
-                      )
-                    : recursivelyFindField({
-                          child: child.props.children,
-                          ...props,
-                      }),
-        })
-    }
-
-    // Non-layout element found - recursion end
-    return <RaField field={child} {...props} />
-}
+    return child.type && child.type.displayName === layoutComponentName;
+};
 
 const CompactShowLayout = ({
     layoutComponentName,
@@ -60,19 +37,22 @@ const CompactShowLayout = ({
     ...rest
 }) => (
     <CardContentInner className={className} key={version} {...sanitizeRestProps(rest)}>
-        {Children.map(children, (child) =>
-            child && isValidElement(child)
-                ? recursivelyFindField({
-                      layoutComponentName,
-                      child,
-                      record,
-                      resource,
-                      basePath,
-                  })
-                : null
+        {Children.map(
+            children,
+            (child) => cloneRecursively(
+                child,
+                {
+                    layoutComponentName,
+                    record,
+                    resource,
+                    basePath,
+                },
+                (x) => isLayoutComponent(x, layoutComponentName),
+                (x, xProps) => <RaField field={x} {...xProps} />,
+            ),
         )}
     </CardContentInner>
-)
+);
 
 CompactShowLayout.propTypes = {
     basePath: PropTypes.string,
@@ -82,6 +62,6 @@ CompactShowLayout.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     layoutComponentName: PropTypes.string,
-}
+};
 
-export default CompactShowLayout
+export default CompactShowLayout;
