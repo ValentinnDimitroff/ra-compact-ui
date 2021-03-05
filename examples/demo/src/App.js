@@ -1,5 +1,5 @@
-import { Admin, EditGuesser, Resource } from 'react-admin';
-import { ProjectList, ProjectShow, StaffShow, StaffList } from './components';
+import { Admin, Resource } from 'react-admin';
+import { ProjectList, ProjectShow, StaffShow, StaffList, StaffEdit } from './components';
 import { dataProvider } from './ra-providers';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 		<Admin dataProvider={dataProvider}>
 			<Resource name="projects" list={ProjectList} show={ProjectShow} />
 			<Resource name="clients" />
-			<Resource name="staff" list={StaffList} show={StaffShow} create={EditGuesser} edit={EditGuesser} />
+			<Resource name="staff" list={StaffList} show={StaffShow} edit={StaffEdit} create={StaffEdit}/>
 		</Admin>
 	);
 }
