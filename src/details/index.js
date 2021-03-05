@@ -1,7 +1,6 @@
-import GridShowLayout from './GridShowLayout'
-import BoxedShowLayout from './BoxedShowLayout'
-import CompactShowLayout from './CompactShowLayout'
-import RaBox from './RaBox'
-import RaGrid from './RaGrid'
-
-export { GridShowLayout, BoxedShowLayout, CompactShowLayout, RaBox, RaGrid }
+export { default as BoxedShowLayout } from './BoxedShowLayout';
+export { default as GridShowLayout } from './GridShowLayout';
+export { default as CompactShowLayout } from './CompactShowLayout';
+export { default as RaBox } from './RaBox';
+export { default as RaGrid } from './RaGrid';
+export { default as ShowSplitter } from './ShowSplitter';
