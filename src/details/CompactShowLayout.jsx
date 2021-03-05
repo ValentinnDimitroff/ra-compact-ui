@@ -2,7 +2,7 @@ import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import { CardContentInner } from 'react-admin';
 import RaField from './RaField';
-import { cloneRecursively, isLayoutComponent } from '../core';
+import { cloneRecursively, getComponentsNames, isLayoutComponent } from '../core';
 
 const sanitizeRestProps = ({
     children,
@@ -17,7 +17,7 @@ const sanitizeRestProps = ({
 }) => rest;
 
 const CompactShowLayout = ({
-    layoutComponentName,
+    layoutComponents,
     basePath,
     className,
     children,
@@ -25,26 +25,29 @@ const CompactShowLayout = ({
     resource,
     version,
     ...rest
-}) => (
-    <CardContentInner className={className} key={version} {...sanitizeRestProps(rest)}>
-        {Children.map(
-            children,
-            (child) => cloneRecursively(
-                child,
-                (x) => isLayoutComponent(x, layoutComponentName),
-                (x) => (
-                    <RaField
-                        field={x}
-                        basePath={basePath}
-                        record={record}
-                        resource={resource}
-                    />
-                ),
-            ),
-        )}
-    </CardContentInner>
-);
+}) => {
+    const layoutComponentsNamesArr = getComponentsNames(layoutComponents);
 
+    return (
+        <CardContentInner className={className} key={version} {...sanitizeRestProps(rest)}>
+            {Children.map(
+                children,
+                (child) => cloneRecursively(
+                    child,
+                    (x) => isLayoutComponent(x, layoutComponentsNamesArr),
+                    (x) => (
+                        <RaField
+                            field={x}
+                            basePath={basePath}
+                            record={record}
+                            resource={resource}
+                        />
+                    ),
+                ),
+            )}
+        </CardContentInner>
+    );
+};
 CompactShowLayout.propTypes = {
     basePath: PropTypes.string,
     record: PropTypes.object,
@@ -52,7 +55,7 @@ CompactShowLayout.propTypes = {
     version: PropTypes.number,
     children: PropTypes.node,
     className: PropTypes.string,
-    layoutComponentName: PropTypes.string,
+    layoutComponents: PropTypes.array,
 };
 
 export default CompactShowLayout;
