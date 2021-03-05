@@ -25,15 +25,45 @@
     }],
     "staff": [{
             "id": 1,
-            "full_name": "Nick Houlden"
+            "full_name": "Nick Houlden",
+            "email": "n.houlden@ra-compact-ui.com",
+            "skills": [{
+                "name": "Project Management"
+            }, {
+                "name": "Scrum"
+            }, {
+                "name": "Agile"
+            }],
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "avatar_url": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         },
         {
             "id": 2,
-            "full_name": "Jason Smith"
+            "full_name": "Jason Smith",
+            "email": "j.smith@ra-compact-ui.com",
+            "skills": [{
+                "name": "Scrum"
+            }, {
+                "name": "Product Design"
+            }, {
+                "name": "Design Thinking"
+            }],
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "avatar_url": "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         },
         {
             "id": 3,
-            "full_name": "Eleonora Rosberg"
+            "full_name": "Eleonora Rosberg",
+            "email": "e.rosberg@ra-compact-ui.com",
+            "skills": [{
+                "name": "Digital Marketing"
+            }, {
+                "name": "Email Marketing"
+            }, {
+                "name": "Google Ads"
+            }],
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "avatar_url": "https://images.pexels.com/photos/1310522/pexels-photo-1310522.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         }
     ],
     "settings": {
