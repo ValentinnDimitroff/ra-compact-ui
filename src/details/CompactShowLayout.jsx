@@ -41,14 +41,15 @@ const CompactShowLayout = ({
             children,
             (child) => cloneRecursively(
                 child,
-                {
-                    layoutComponentName,
-                    record,
-                    resource,
-                    basePath,
-                },
                 (x) => isLayoutComponent(x, layoutComponentName),
-                (x, xProps) => <RaField field={x} {...xProps} />,
+                (x) => (
+                    <RaField
+                        field={x}
+                        basePath={basePath}
+                        record={record}
+                        resource={resource}
+                    />
+                ),
             ),
         )}
     </CardContentInner>

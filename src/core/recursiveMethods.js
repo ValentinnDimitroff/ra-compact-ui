@@ -1,6 +1,6 @@
 import { Children, isValidElement, cloneElement } from 'react';
 
-export const cloneRecursively = (child, props, conditionFnc, renderFnc) => (
+export const cloneRecursively = (child, conditionFnc, renderFnc) => (
     child
         && isValidElement(child)
         ? recursivelyFindRealChildren(
@@ -8,7 +8,6 @@ export const cloneRecursively = (child, props, conditionFnc, renderFnc) => (
                 child,
                 renderFnc,
                 conditionFnc,
-                ...props,
             },
         )
         : null
