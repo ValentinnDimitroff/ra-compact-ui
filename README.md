@@ -42,7 +42,7 @@ Show View
 Create & Edit View 
 
 <ul>
-    <li><a href="#boxedshowlayout">CompactForm</a></li>
+    <li><a href="#compactform">CompactForm</a></li>
 </ul>
 
 # Examples
@@ -123,7 +123,9 @@ Usage is asbolutely analogously to the `BoxShowLayout`.
 ### CompactShowLayout
 This layout is a more generic version allowing you to pass your own layout building blocks (components). It serves also as the base component wrapped by the above ones.
 
-Specify the used layout components which should be escaped as non-field components while rendering.
+Pass to `layoutComponents` prop an array which specifies the used layout components to be escaped as non-field components while rendering.
+
+**Important** - All layout components should have a specified `displayName`.
 
 ```jsx
 <CompactShowLayout layoutComponents={[CustomBox, RaBox]}>
@@ -144,41 +146,48 @@ Need to mix up different layouts on the same page and separate different section
 - Pass the component as single child to the `<Show/>` component.
 - Then pass your different layouts to the `<ShowSplitter/>`'s props `leftSide` and `rightSide`.
 
-**hint** - to escape the default `<Card/>` surface provided by the  `<Show/>` component pass your custom value, e.g. `component="div"`.
+**hint** - to escape the default `<Card/>` surface provided by the  `<Show/>` component pass your custom value, e.g. `component="div"`. 
 
 ```jsx
-<Show
-    {...props}
-    component="div"
->
-    <ShowSplitter
-        leftSide={
-            <SimpleShowLayout>
-                <AvatarShowField />
-                <TextField source="full_name" />
-                <TextField source="email" />
-                <ArrayField source="skills">
-                    <SingleFieldList>
-                        <ChipField source="name" />
-                    </SingleFieldList>
-                </ArrayField>
-            </SimpleShowLayout>
-        }
-        rightSide={
-            <TabbedShowLayout>
-                <Tab label="Overview">
-                    <TextField source="description" />
-                </Tab>
-                <Tab label="Projects">
-                    {/* add more fields here */}
-                </Tab>
-            </TabbedShowLayout>
-        }
-    />
-</Show>
-```
+import { ShowSplitter } from 'ra-compact-ui';
 
-Control the way the layout is split using the `leftSideProps` and `rightSideProps` props. You can pass objects with props which will be destructed to the respective `material-ui`'s `Grid` components which wrap the passed layouts. 
+...
+
+const StaffShow = props => (
+    <Show
+        {...props}
+        component="div"
+    >
+        <ShowSplitter
+            leftSide={
+                <SimpleShowLayout>
+                    <AvatarShowField />
+                    <TextField source="full_name" />
+                    <TextField source="email" />
+                    <ArrayField source="skills">
+                        <SingleFieldList>
+                            <ChipField source="name" />
+                        </SingleFieldList>
+                    </ArrayField>
+                </SimpleShowLayout>
+            }
+            rightSide={
+                <TabbedShowLayout>
+                    <Tab label="Overview">
+                        <TextField source="description" />
+                    </Tab>
+                    <Tab label="Projects">
+                        {/* add more fields here */}
+                    </Tab>
+                </TabbedShowLayout>
+            }
+        />
+    </Show>
+);
+```
+The `component` prop is also supported by each side of the split layout.
+
+Override and customize the way the layout is split using the `leftSideProps` and `rightSideProps` props. You can pass objects with props which will be destructed to the respective `material-ui`'s `Grid` components which wrap the passed layouts. 
 
 The default values are:
 
@@ -197,7 +206,36 @@ The default values are:
 ```
 <br/>
 
-## About Author
+## Create & Edit View Components
+### CompactForm
+Provides form layout customization out of the box just like using the `<SimpleForm/>`.
+
+Pass to `layoutComponents` prop an array which specifies the used layout components to be escaped as non-input components while rendering.
+
+**Important** - All layout components should have a specified `displayName`.
+
+```jsx
+import { CompactForm, RaBox } from 'ra-compact-ui';
+
+...
+
+const StaffEdit = props => (
+    <Edit {...props}>
+        <CompactForm layoutComponents={[RaBox]}>
+            <RaBox display="flex" justifyContent="space-around">
+                <TextInput source="full_name" />
+                <TextInput source="email" />
+            </RaBox>
+            <TextInput source="description" />
+            <TextInput source="avatar_url" />
+        </CompactForm>
+    </Edit>
+);
+```
+
+<br/>
+
+# About Author
 
 An enthusiast in :sparkling_heart: with building software who likes to call it "the grown up's LEGO".
 
