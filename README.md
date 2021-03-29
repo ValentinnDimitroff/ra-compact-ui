@@ -13,6 +13,7 @@ Why using?
 [![GitHub license](https://img.shields.io/github/license/ValentinnDimitroff/ra-compact-ui.svg)](https://github.com/ValentinnDimitroff/ra-compact-ui/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/ValentinnDimitroff/ra-compact-ui/)
 [![minzipped size](https://badgen.net/bundlephobia/minzip/ra-compact-ui)](https://bundlephobia.com/result?p=ra-compact-ui)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 Actively maintained and developed with monthly releases!
 
@@ -25,7 +26,12 @@ npm install ra-compact-ui
 #or
 yarn add ra-compact-ui
 ```
-
+Run the Demo
+```sh
+npm run start-demo
+#or
+yarn start-demo
+```
 # Table of Content
 Show View 
 
@@ -109,7 +115,7 @@ const useStyles = makeStyles(theme => ({
 </BoxedShowLayout>
 ```
 
-![image](https://user-images.githubusercontent.com/26602880/98883065-64d05000-2496-11eb-8551-c281123cf041.png)
+![image](https://user-images.githubusercontent.com/26602880/112832780-78bfcb80-909e-11eb-9aa1-9c33bb173fa2.png)
 
 <br/>
 
@@ -185,11 +191,11 @@ const StaffShow = props => (
     </Show>
 );
 ```
-The `component` prop is also supported by each side of the split layout.
+![image](https://user-images.githubusercontent.com/26602880/112832872-9ab94e00-909e-11eb-9127-2a864f1a241e.png)
 
 Override and customize the way the layout is split using the `leftSideProps` and `rightSideProps` props. You can pass objects with props which will be destructed to the respective `material-ui`'s `Grid` components which wrap the passed layouts. 
 
-The default values are:
+The `component` prop is also supported by each side of the split layout. Example values:
 
 ```jsx
 <ShowSplitter
