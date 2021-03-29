@@ -48,7 +48,7 @@
         "build": "rimraf ./dist && yarn babel-transpile",
         "prepare": "yarn build",
         "prettier": "prettier  --config prettier.config.js --write ./src/",
-        "run-demo": "cd examples/demo && yarn start"
+        "start-demo": "cd examples/demo && yarn start"
     },
     "repository": "https://github.com/ValentinnDimitroff/ra-compact-ui.git",
     "author": "Valentin Dimitroff",

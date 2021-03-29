@@ -16,7 +16,7 @@ Why using?
 
 Actively maintained and developed with monthly releases!
 
-## Installation
+# Installation
 
 Available as a npm package. You can install it using:
 
@@ -26,16 +26,37 @@ npm install ra-compact-ui
 yarn add ra-compact-ui
 ```
 
+# Table of Content
+Show View 
 
-## Details View components
+<ul>
+    <li><a href="#layouts">Layouts</a></li>
+    <ul>
+        <li><a href="#boxedshowlayout">Box ShowLayout</a></li>
+        <li><a href="#gridshowlayout">Grid ShowLayout</a></li>
+        <li><a href="#boxedshowlayout">Compact ShowLayout</a></li>
+        <li><a href="#boxedshowlayout">Show Splitter</a></li>
+    </ul>    
+</ul>
+
+Create & Edit View 
+
+<ul>
+    <li><a href="#boxedshowlayout">CompactForm</a></li>
+</ul>
+
+# Examples
+## Show View Components
 
 ### Layouts
 Layout components which allow building custom Show Layouts using unlimited nesting of `material-ui`'s `Box` or `Grid` components while maintaining native use of all of the `react-admin` field-related components. Each layout can be used inside the `Show` component as well as inside the `TabbedShowLayout`'s `Tab` component.
 
 **Important** - In order for the layouts to work properly you should use the provided wrappers of the `material-ui`'s layout components named relatively - `RaBox` and `RaGrid`. They receive and pass directly all the props provided by the `material-ui`'s api.
 
-Here are examples:
-- [`BoxedShowLayout`](https://github.com/ValentinnDimitroff/ra-compact-ui/blob/master/src/details/BoxedShowLayout.js)
+<br/>
+
+### BoxedShowLayout 
+Utilizes `material-ui`'s Box component wrapped inside `RaBox` and provides easy access to common css and flex-box properties.
 
 ```jsx
 const useStyles = makeStyles(theme => ({
@@ -90,8 +111,91 @@ const useStyles = makeStyles(theme => ({
 
 ![image](https://user-images.githubusercontent.com/26602880/98883065-64d05000-2496-11eb-8551-c281123cf041.png)
 
+<br/>
 
-- [`GridShowLayout`](https://github.com/ValentinnDimitroff/ra-compact-ui/blob/master/src/details/GridShowLayout.js)
+### GridShowLayout
+Utilizes `material-ui`'s Grid component wrapped inside `RaGrid`. Useful to align fields into rows and columns and make layout sections responsive.
+
+Usage is asbolutely analogously to the `BoxShowLayout`.
+
+<br/>
+
+### CompactShowLayout
+This layout is a more generic version allowing you to pass your own layout building blocks (components). It serves also as the base component wrapped by the above ones.
+
+Specify the used layout components which should be escaped as non-field components while rendering.
+
+```jsx
+<CompactShowLayout layoutComponents={[CustomBox, RaBox]}>
+    <CustomBox>
+        <TextField source="name"/>
+        <RaBox>
+            <NumberInput source="age" />
+        </RaBox>
+    </CustomBox>
+</CompactShowLayout>
+```
+
+<br/>
+
+### ShowSplitter
+Need to mix up different layouts on the same page and separate different sections? The `<ShowSplitter/>` component helps you do just that with ease.
+
+- Pass the component as single child to the `<Show/>` component.
+- Then pass your different layouts to the `<ShowSplitter/>`'s props `leftSide` and `rightSide`.
+
+**hint** - to escape the default `<Card/>` surface provided by the  `<Show/>` component pass your custom value, e.g. `component="div"`.
+
+```jsx
+<Show
+    {...props}
+    component="div"
+>
+    <ShowSplitter
+        leftSide={
+            <SimpleShowLayout>
+                <AvatarShowField />
+                <TextField source="full_name" />
+                <TextField source="email" />
+                <ArrayField source="skills">
+                    <SingleFieldList>
+                        <ChipField source="name" />
+                    </SingleFieldList>
+                </ArrayField>
+            </SimpleShowLayout>
+        }
+        rightSide={
+            <TabbedShowLayout>
+                <Tab label="Overview">
+                    <TextField source="description" />
+                </Tab>
+                <Tab label="Projects">
+                    {/* add more fields here */}
+                </Tab>
+            </TabbedShowLayout>
+        }
+    />
+</Show>
+```
+
+Control the way the layout is split using the `leftSideProps` and `rightSideProps` props. You can pass objects with props which will be destructed to the respective `material-ui`'s `Grid` components which wrap the passed layouts. 
+
+The default values are:
+
+```jsx
+<ShowSplitter
+    leftSideProps={{
+        md: 4,
+        component: 'div'
+    }}
+    rightSideProps={{
+        md: 8
+    }}
+    leftSide={...}
+    rightSide={...}
+/>
+```
+<br/>
 
 ## About Author
 
