@@ -3,7 +3,7 @@ Enhanced styling components for popular framework [`react-admin`](https://github
 
 No extra dependencies are required except the ones react-admin is already using.
 
-Why using? 
+Why use? 
  - reduces styling boilerplate code
  - eases layout customizations 
  - maintains native usage of built-in `react-admin` components
@@ -32,7 +32,7 @@ npm run start-demo
 #or
 yarn start-demo
 ```
-# Table of Content
+# Table of Contents
 Show View 
 
 <ul>
@@ -57,7 +57,7 @@ Create & Edit View
 ### Layouts
 Layout components which allow building custom Show Layouts using unlimited nesting of `material-ui`'s `Box` or `Grid` components while maintaining native use of all of the `react-admin` field-related components. Each layout can be used inside the `Show` component as well as inside the `TabbedShowLayout`'s `Tab` component.
 
-**Important** - In order for the layouts to work properly you should use the provided wrappers of the `material-ui`'s layout components named relatively - `RaBox` and `RaGrid`. They receive and pass directly all the props provided by the `material-ui`'s api.
+**Important** - In order for the layouts to work properly you should use the provided wrappers of `material-ui`'s layout components named relatively - `RaBox` and `RaGrid`. They receive and pass all the props provided by the `material-ui`'s api directly.
 
 <br/>
 
@@ -120,9 +120,9 @@ const useStyles = makeStyles(theme => ({
 <br/>
 
 ### GridShowLayout
-Utilizes `material-ui`'s Grid component wrapped inside `RaGrid`. Useful to align fields into rows and columns and make layout sections responsive.
+Utilizes `material-ui`'s Grid component wrapped inside `RaGrid`. Useful for aligning fields into rows and columns, as well as for making layout sections responsive.
 
-Usage is asbolutely analogously to the `BoxShowLayout`.
+Usage is absolutely analogous to the `BoxShowLayout`.
 
 <br/>
 
@@ -193,7 +193,7 @@ const StaffShow = props => (
 ```
 ![image](https://user-images.githubusercontent.com/26602880/112832872-9ab94e00-909e-11eb-9127-2a864f1a241e.png)
 
-Override and customize the way the layout is split using the `leftSideProps` and `rightSideProps` props. You can pass objects with props which will be destructed to the respective `material-ui`'s `Grid` components which wrap the passed layouts. 
+Override and customize the way the layout is split using the `leftSideProps` and `rightSideProps` props. You can pass objects with props which will be destructured to the respective `material-ui`'s `Grid` components which wrap the passed layouts. 
 
 The `component` prop is also supported by each side of the split layout. Example values:
 
