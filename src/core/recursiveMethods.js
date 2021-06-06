@@ -22,11 +22,13 @@ const recursivelyFindRealChildren = ({ child, ...props }) => {
         return cloneElement(child, {
             children:
                 Children.count(child.props.children) > 1
-                    ? child.props.children
-                        .map((innerChild) => recursivelyFindRealChildren({
+                    ? Children.map(
+                        child.props.children,
+                        (innerChild) => recursivelyFindRealChildren({
                             child: innerChild,
                             ...props,
-                        }))
+                        }),
+                    )
                     : recursivelyFindRealChildren({
                         child: child.props.children,
                         ...props,
@@ -35,5 +37,5 @@ const recursivelyFindRealChildren = ({ child, ...props }) => {
     }
 
     // Non-layout element found - recursion's bottom
-    return renderFnc(child, props);
+    return renderFnc(child);
 };
