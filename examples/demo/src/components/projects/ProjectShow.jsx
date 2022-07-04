@@ -31,7 +31,7 @@ const ProjectShow = props => {
                                 <TextField source="name" />
                             </ReferenceField>
                             <ChipField source="progressStatus" label="Progress Status" />
-                            <TextField source="priority" />
+                            <TextField source="priority" /> 
                         </RaBox>
                         <RaBox flex="0 0 100%" display="flex" justifyContent="space-between">
                             <DateField source="startDate" />
