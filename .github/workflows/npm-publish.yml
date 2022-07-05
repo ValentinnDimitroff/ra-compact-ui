@@ -43,7 +43,7 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
           always-auth: true
-      - run: npm ci
-      - run: npm publish --new-version ${GITHUB_REF#"refs/tags/"} --no-git-tag-version
+      - run: yarn
+      - run: yarn publish --new-version ${GITHUB_REF#"refs/tags/"} --no-git-tag-version
         env:
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
