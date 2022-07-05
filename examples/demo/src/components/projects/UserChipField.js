@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const styles = {
     root: props => props.compact ? ({
-        marginLeft:  "0px !important"
+        marginLeft: "0px !important"
     }) : undefined
 }
 

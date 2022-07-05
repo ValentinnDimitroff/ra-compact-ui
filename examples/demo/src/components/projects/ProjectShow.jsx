@@ -27,7 +27,7 @@ const ProjectShow = props => {
                 <RaBox display="flex" >
                     <RaBox display="flex" flexWrap="wrap" flexGrow={4} className={classes.detailsBox}>
                         <RaBox flex="0 0 100%" display="flex" justifyContent="space-between">
-                            <ReferenceField label="Client Name" source="client_id" reference="clients">
+                            <ReferenceField label="Client Name" source="client_id" reference="clients" link="show">
                                 <TextField source="name" />
                             </ReferenceField>
                             <ChipField source="progressStatus" label="Progress Status" />
@@ -40,13 +40,13 @@ const ProjectShow = props => {
                         </RaBox>
                     </RaBox>
                     <RaBox display="inline-flex" flexDirection="column" flexGrow={1}>
-                        <ReferenceField label="Project Manager" source="manager_id" reference="staff">
+                        <ReferenceField label="Project Manager" source="manager_id" reference="staff" link="show">
                             <UserChipField source="full_name" />
                         </ReferenceField>
-                        <ReferenceField label="Product Owner" source="product_owner_id" reference="staff">
+                        <ReferenceField label="Product Owner" source="product_owner_id" reference="staff" link="show">
                             <UserChipField source="full_name" />
                         </ReferenceField>
-                        <ReferenceField label="Marketing Specialist" source="marketing_specialist_id" reference="staff">
+                        <ReferenceField label="Marketing Specialist" source="marketing_specialist_id" reference="staff" link="show">
                             <UserChipField source="full_name" />
                         </ReferenceField>
                     </RaBox>
@@ -57,8 +57,8 @@ const ProjectShow = props => {
                             <DateField source="date" />
                             <TextField source="description" />
                             <ArrayField source="members">
-                                <SingleFieldList>
-                                    <ReferenceField label="Marketing Specialist" source="staff_id" reference="staff">
+                                <SingleFieldList linkType={false}>
+                                    <ReferenceField label="Marketing Specialist" source="staff_id" reference="staff" link="show">
                                         <UserChipField source="full_name" />
                                     </ReferenceField>
                                 </SingleFieldList>
