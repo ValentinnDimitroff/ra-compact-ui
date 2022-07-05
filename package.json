@@ -1,6 +1,6 @@
 {
     "name": "ra-compact-ui",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "main": "dist/index.js",
     "module": "dist/index.js",
     "dependencies": {
@@ -30,7 +30,8 @@
         "eslint-plugin-react-hooks": "^4.2.0",
         "install-peers": "^1.0.4",
         "jest": "^26.6.3",
-        "prettier": "2.2.1"
+        "prettier": "2.2.1",
+        "rimraf": "^3.0.2"
     },
     "jest": {
         "testPathIgnorePatterns": [
