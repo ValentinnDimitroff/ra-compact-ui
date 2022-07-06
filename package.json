@@ -55,5 +55,8 @@
     },
     "repository": "https://github.com/ValentinnDimitroff/ra-compact-ui.git",
     "author": "Valentin Dimitroff",
-    "license": "MIT"
+    "license": "MIT",
+    "publishConfig": {
+        "@ValentinnDimitroff:registry": "https://npm.pkg.github.com"
+    }
 }
