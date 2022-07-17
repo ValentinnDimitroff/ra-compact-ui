@@ -3,13 +3,19 @@ import { ProjectList, ProjectShow, StaffShow, StaffList, StaffEdit } from './com
 import { dataProvider } from './ra-providers';
 
 function App() {
-	return (
-		<Admin dataProvider={dataProvider}>
-			<Resource name="projects" list={ProjectList} show={ProjectShow} />
-			<Resource name="clients" />
-			<Resource name="staff" list={StaffList} show={StaffShow} edit={StaffEdit} create={StaffEdit}/>
-		</Admin>
-	);
-}
+    return (
+        <Admin dataProvider={dataProvider}>
+            <Resource name="projects" list={ProjectList} show={ProjectShow} />
+            <Resource name="clients" />
+            <Resource
+                name="staff"
+                list={StaffList}
+                show={StaffShow}
+                edit={StaffEdit}
+                create={StaffEdit}
+            />
+        </Admin>
+    )
+};
 
 export default App;

@@ -1,28 +1,21 @@
-import React from 'react'
-import { ChipField } from 'react-admin'
-import Avatar from '@material-ui/core/Avatar'
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
+import { ChipField } from 'react-admin';
+import Avatar from '@mui/material/Avatar';
 
-const styles = {
-    root: props => props.compact ? ({
-        marginLeft:  "0px !important"
-    }) : undefined
-}
-
-const useStyles = makeStyles(styles);
-
-const UserChipField = ({ record, source = "fullName", ...props }) => {
-    const classes = useStyles(props);
+const UserChipField = ({ record, source = 'fullName', ...props }) => {
 
     return (
         <ChipField
             avatar={
                 <Avatar
                     src={record && record.picture}
-                    classes={{
-                        root: classes.root
-                    }}
-                />}
+                   sx={(props) =>
+                    props.compact
+                        ? {
+                              marginLeft: '0px !important',
+                          }: undefined}
+                />
+            }
             source={source}
             record={record}
             {...props}
@@ -30,4 +23,4 @@ const UserChipField = ({ record, source = "fullName", ...props }) => {
     )
 }
 
-export default UserChipField
+export default UserChipField;

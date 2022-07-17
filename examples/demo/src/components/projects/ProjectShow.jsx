@@ -1,5 +1,5 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/core';
+import React from 'react';
+import { makeStyles } from '@mui/styles';
 import {
     Show, ReferenceField, TextField, ChipField, DateField,
     ArrayField, Datagrid, SingleFieldList
@@ -31,7 +31,7 @@ const ProjectShow = props => {
                                 <TextField source="name" />
                             </ReferenceField>
                             <ChipField source="progressStatus" label="Progress Status" />
-                               <TextField source="priority" />
+                            <TextField source="priority" />
                         </RaBox>
                         <RaBox flex="0 0 100%" display="flex" justifyContent="space-between">
                             <DateField source="startDate" />
@@ -68,8 +68,8 @@ const ProjectShow = props => {
                 </RaBox>
             </BoxedShowLayout>
         </Show>
-    )
-}
+    );
+};
 
-export default ProjectShow
+export default ProjectShow;
 

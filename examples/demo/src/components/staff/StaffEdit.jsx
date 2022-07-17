@@ -20,4 +20,4 @@ const StaffEdit = props => (
     </Edit>
 );
 
-export default StaffEdit
+export default StaffEdit;

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Datagrid, List, TextField } from 'react-admin'
+import React from 'react';
+import { Datagrid, List, TextField } from 'react-admin';
 
 const StaffList = props => {
     return (
@@ -8,7 +8,7 @@ const StaffList = props => {
                 <TextField source="full_name" />
             </Datagrid>
         </List>
-    )
-}
+    );
+};
 
-export default StaffList
+export default StaffList;

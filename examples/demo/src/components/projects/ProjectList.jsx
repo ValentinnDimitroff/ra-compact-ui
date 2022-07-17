@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Datagrid, List, TextField, DateField, ReferenceField } from 'react-admin';
 
 const ProjectList = props => (
@@ -27,4 +27,4 @@ const ProjectList = props => (
     </List>
 );
 
-export default ProjectList
+export default ProjectList;

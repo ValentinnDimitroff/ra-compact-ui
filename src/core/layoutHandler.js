@@ -5,12 +5,10 @@ export const isLayoutComponent = (child, layoutComponentsNamesArr) => {
         throw EMPTY_LAYOUT_NODE_ERROR;
     }
 
-    return child.type
-        && (
-            layoutComponentsNamesArr
-                .filter((name) => name === child.type.displayName)
-                .length > 0
-        );
+    return (
+        child.type
+        && layoutComponentsNamesArr.filter((name) => name === child.type.displayName).length > 0
+    );
 };
 
 export const getComponentsNames = (componentsArr) => componentsArr.map((x) => x.displayName);

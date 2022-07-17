@@ -1,7 +1,7 @@
-import React from 'react'
-import { ArrayField, ChipField, Show, SimpleShowLayout, SingleFieldList, Tab, TabbedShowLayout, TextField } from 'react-admin'
-import { ShowSplitter } from 'ra-compact-ui'
-import AvatarShowField from './AvatarShowField'
+import React from 'react';
+import { ArrayField, ChipField, Show, SimpleShowLayout, SingleFieldList, Tab, TabbedShowLayout, TextField } from 'react-admin';
+import { ShowSplitter } from 'ra-compact-ui';
+import AvatarShowField from './AvatarShowField';
 
 const StaffShow = props => {
     return (
@@ -40,7 +40,7 @@ const StaffShow = props => {
                 }
             />
         </Show>
-    )
-}
+    );
+};
 
-export default StaffShow
+export default StaffShow;
