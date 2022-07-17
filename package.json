@@ -4,6 +4,8 @@
     "main": "dist/index.js",
     "module": "dist/index.js",
     "dependencies": {
+        "@emotion/react": "^11.9.3",
+        "@emotion/styled": "^11.9.3",
         "@mui/styles": "^5.9.0",
         "@mui/system": "^5.8.7",
         "classnames": "^2.2.6",
