@@ -1,14 +1,12 @@
 {
     "presets": [
-        ["@babel/preset-env", {
-            "targets": "defaults"
-        }],
+        [
+            "@babel/preset-env",
+            {
+                "targets": "defaults"
+            }
+        ],
         "@babel/preset-react"
     ],
-    "plugins": [
-
-    ],
-    "ignore": ["**/__tests__", // ignore the whole test directory
-        "**/*.test.js" // ignore test files only
-    ]
+    "plugins": []
 }
