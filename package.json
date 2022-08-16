@@ -1,6 +1,6 @@
 {
     "name": "ra-compact-ui",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "main": "dist/index.js",
     "module": "dist/index.js",
     "dependencies": {
@@ -33,13 +33,16 @@
         "eslint-plugin-jsx-a11y": "^6.4.1",
         "eslint-plugin-react": "^7.22.0",
         "eslint-plugin-react-hooks": "^4.2.0",
+        "install-peers": "^1.0.4",
         "jest": "^26.6.3",
-        "prettier": "2.2.1"
+        "prettier": "2.2.1",
+        "rimraf": "^3.0.2"
     },
     "jest": {
         "testPathIgnorePatterns": [
             "/node_modules/",
-            "/examples/demo/"
+            "/examples/demo/",
+            "/dist/"
         ],
         "transformIgnorePatterns": [
             "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|ts|tsx)$",
@@ -49,13 +52,16 @@
     "scripts": {
         "test": "jest",
         "lint": "eslint",
-        "babel-transpile": "babel src -d dist",
+        "babel-transpile": "babel src/ -d dist/ --ignore __mocks__,__tests__,src/**/*.test.js",
         "build": "rimraf ./dist && yarn babel-transpile",
         "prepare": "yarn build",
         "prettier": "prettier  --config prettier.config.js --write ./src/",
-        "start-demo": "cd examples/demo && yarn start"
+        "start-demo": "cd examples/demo && rm -rf node_modules/ra-compact-ui && yarn --check-files && yarn start"
     },
     "repository": "https://github.com/ValentinnDimitroff/ra-compact-ui.git",
     "author": "Valentin Dimitroff",
-    "license": "MIT"
+    "license": "MIT",
+    "publishConfig": {
+        "@ValentinnDimitroff:registry": "https://npm.pkg.github.com"
+    }
 }
