@@ -1,8 +1,8 @@
-import React, { Children } from 'react';
-import PropTypes from 'prop-types';
-import { CardContentInner } from 'react-admin';
-import RaField from './RaField';
-import { cloneRecursively, getComponentsNames, isLayoutComponent } from '../core';
+import React, { Children } from 'react'
+import PropTypes from 'prop-types'
+import { CardContentInner } from 'react-admin'
+import RaField from './RaField'
+import { cloneRecursively, getComponentsNames, isLayoutComponent } from '../core'
 
 const sanitizeRestProps = ({
     children,
@@ -14,7 +14,7 @@ const sanitizeRestProps = ({
     initialValues,
     translate,
     ...rest
-}) => rest;
+}) => rest
 
 const CompactShowLayout = ({
     layoutComponents,
@@ -26,13 +26,12 @@ const CompactShowLayout = ({
     version,
     ...rest
 }) => {
-    const layoutComponentsNamesArr = getComponentsNames(layoutComponents);
+    const layoutComponentsNamesArr = getComponentsNames(layoutComponents)
 
     return (
         <CardContentInner className={className} key={version} {...sanitizeRestProps(rest)}>
-            {Children.map(
-                children,
-                (child) => cloneRecursively(
+            {Children.map(children, (child) =>
+                cloneRecursively(
                     child,
                     (x) => isLayoutComponent(x, layoutComponentsNamesArr),
                     (x) => (
@@ -42,12 +41,12 @@ const CompactShowLayout = ({
                             record={record}
                             resource={resource}
                         />
-                    ),
-                ),
+                    )
+                )
             )}
         </CardContentInner>
-    );
-};
+    )
+}
 CompactShowLayout.propTypes = {
     basePath: PropTypes.string,
     record: PropTypes.object,
@@ -56,6 +55,6 @@ CompactShowLayout.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     layoutComponents: PropTypes.array,
-};
+}
 
-export default CompactShowLayout;
+export default CompactShowLayout

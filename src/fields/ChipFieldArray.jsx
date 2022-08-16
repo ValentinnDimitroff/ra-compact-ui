@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@mui/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import Chip from '@mui/material/Chip';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { makeStyles } from '@mui/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
+import Chip from '@mui/material/Chip'
 
 const styles = {
     ul: {
@@ -13,19 +13,19 @@ const styles = {
     responsiveChip: {
         height: '18px',
     },
-};
+}
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles(styles)
 
 const ChipFieldArray = ({ record, source }) => {
-    const classes = useStyles();
-    const isXSmall = useMediaQuery((theme) => theme.breakpoints.down('xs'));
+    const classes = useStyles()
+    const isXSmall = useMediaQuery((theme) => theme.breakpoints.down('xs'))
 
     return (
         <ul className={classes.ul}>
-            {record
-                && record[source]
-                && record[source].map((item) => (
+            {record &&
+                record[source] &&
+                record[source].map((item) => (
                     <Chip
                         key={item}
                         label={item}
@@ -33,17 +33,17 @@ const ChipFieldArray = ({ record, source }) => {
                     />
                 ))}
         </ul>
-    );
-};
+    )
+}
 
 ChipFieldArray.propTypes = {
     record: PropTypes.object,
     source: PropTypes.string,
-};
+}
 
 ChipFieldArray.defaultProps = {
     // eslint-disable-next-line react/default-props-match-prop-types
     addLabel: true,
-};
+}
 
-export default ChipFieldArray;
+export default ChipFieldArray

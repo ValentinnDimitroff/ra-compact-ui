@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@mui/styles';
-import AvatarField from './AvatarField';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { makeStyles } from '@mui/styles'
+import AvatarField from './AvatarField'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -14,29 +14,29 @@ const useStyles = makeStyles((theme) => ({
         marginTop: -theme.spacing(0.5),
         marginBottom: -theme.spacing(0.5),
     },
-}));
+}))
 
 const FullNameField = ({ record, size }) => {
-    const classes = useStyles();
+    const classes = useStyles()
 
     return record ? (
         <div className={classes.root}>
             <AvatarField className={classes.avatar} size={size} record={record} />
             {`${record.firstName} ${record.lastName}`}
         </div>
-    ) : null;
-};
+    ) : null
+}
 
 FullNameField.propTypes = {
     record: PropTypes.object,
     // source: PropTypes.string,
     // label: PropTypes.string,
     size: PropTypes.string,
-};
+}
 
 FullNameField.defaultProps = {
     // source: 'firstName',
     // label: 'resources.customers.fields.name',
-};
+}
 
-export default FullNameField;
+export default FullNameField

@@ -1,2 +1,2 @@
-export * from './recursiveMethods';
-export * from './layoutHandler';
+export * from './recursiveMethods'
+export * from './layoutHandler'
