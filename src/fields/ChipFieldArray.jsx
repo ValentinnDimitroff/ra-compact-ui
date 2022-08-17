@@ -1,36 +1,23 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { makeStyles } from '@mui/styles'
-import useMediaQuery from '@mui/material/useMediaQuery'
 import Chip from '@mui/material/Chip'
-
-const styles = {
-    ul: {
-        margin: '0px',
-        padding: '0px',
-        display: 'inline',
-    },
-    responsiveChip: {
-        height: '18px',
-    },
-}
-
-const useStyles = makeStyles(styles)
+import useMediaQuery from '@mui/material/useMediaQuery'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const ChipFieldArray = ({ record, source }) => {
-    const classes = useStyles()
     const isXSmall = useMediaQuery((theme) => theme.breakpoints.down('xs'))
 
     return (
-        <ul className={classes.ul}>
+        <ul
+            sx={{
+                margin: '0px',
+                padding: '0px',
+                display: 'inline',
+            }}
+        >
             {record &&
                 record[source] &&
                 record[source].map((item) => (
-                    <Chip
-                        key={item}
-                        label={item}
-                        className={isXSmall ? classes.responsiveChip : undefined}
-                    />
+                    <Chip key={item} label={item} sx={{ height: isXSmall ? '18px' : undefined }} />
                 ))}
         </ul>
     )

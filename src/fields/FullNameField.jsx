@@ -1,27 +1,20 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import { makeStyles } from '@mui/styles'
+import React from 'react'
 import AvatarField from './AvatarField'
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-        flexWrap: 'nowrap',
-        alignItems: 'center',
-    },
-    avatar: {
-        marginRight: theme.spacing(1),
-        marginTop: -theme.spacing(0.5),
-        marginBottom: -theme.spacing(0.5),
-    },
-}))
-
+// eslint-disable-next-line arrow-body-style
 const FullNameField = ({ record, size }) => {
-    const classes = useStyles()
-
     return record ? (
-        <div className={classes.root}>
-            <AvatarField className={classes.avatar} size={size} record={record} />
+        <div sx={{ display: 'flex', flexWrap: 'nowrap', alignItems: 'center' }}>
+            <AvatarField
+                sx={{
+                    marginRight: (theme) => theme.spacing(1),
+                    marginTop: (theme) => -theme.spacing(0.5),
+                    marginBottom: (theme) => -theme.spacing(0.5),
+                }}
+                size={size}
+                record={record}
+            />
             {`${record.firstName} ${record.lastName}`}
         </div>
     ) : null

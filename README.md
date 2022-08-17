@@ -1,11 +1,11 @@
 # ra-compact-ui
-Enhanced styling components for popular framework [`react-admin`](https://github.com/marmelab/react-admin). 
+Enhanced styling components for popular framework [`react-admin`](https://github.com/marmelab/react-admin).
 
 No extra dependencies are required except the ones react-admin is already using.
 
-Why use? 
+Why use?
  - reduces styling boilerplate code
- - eases layout customizations 
+ - eases layout customizations
  - maintains native usage of built-in `react-admin` components
 
 [![npm version](https://img.shields.io/npm/v/ra-compact-ui.svg)](https://www.npmjs.com/package/ra-compact-ui)
@@ -33,7 +33,7 @@ npm run start-demo
 yarn start-demo
 ```
 # Table of Contents
-Show View 
+Show View
 
 <ul>
     <li><a href="#layouts">Layouts</a></li>
@@ -42,10 +42,10 @@ Show View
         <li><a href="#gridshowlayout">Grid ShowLayout</a></li>
         <li><a href="#boxedshowlayout">Compact ShowLayout</a></li>
         <li><a href="#boxedshowlayout">Show Splitter</a></li>
-    </ul>    
+    </ul>
 </ul>
 
-Create & Edit View 
+Create & Edit View
 
 <ul>
     <li><a href="#compactform">CompactForm</a></li>
@@ -61,23 +61,16 @@ Layout components which allow building custom Show Layouts using unlimited nesti
 
 <br/>
 
-### BoxedShowLayout 
+### BoxedShowLayout
 Utilizes `material-ui`'s Box component wrapped inside `RaBox` and provides easy access to common css and flex-box properties.
 
 ```jsx
-const useStyles = makeStyles(theme => ({
-    detailsBox: {
-        paddingRight: "50px",
-        borderRight: "solid thin",
-        marginRight: "50px",
-    },
-}));
-
-...
-
 <BoxedShowLayout>
     <RaBox display="flex" >
-        <RaBox display="flex" flexWrap="wrap" flexGrow={4} className={classes.detailsBox}>
+        <RaBox display="flex" flexWrap="wrap" flexGrow={4} sx={{
+            paddingRight: "50px",
+            borderRight: "solid thin",
+            marginRight: "50px"}}>
             <RaBox flex="0 0 100%" display="flex" justifyContent="space-between">
                 <ReferenceField label="Client Name" source="clientId" reference="clients">
                     <TextField source="name" />
@@ -152,7 +145,7 @@ Need to mix up different layouts on the same page and separate different section
 - Pass the component as single child to the `<Show/>` component.
 - Then pass your different layouts to the `<ShowSplitter/>`'s props `leftSide` and `rightSide`.
 
-**hint** - to escape the default `<Card/>` surface provided by the  `<Show/>` component pass your custom value, e.g. `component="div"`. 
+**hint** - to escape the default `<Card/>` surface provided by the  `<Show/>` component pass your custom value, e.g. `component="div"`.
 
 ```jsx
 import { ShowSplitter } from 'ra-compact-ui';
@@ -193,7 +186,7 @@ const StaffShow = props => (
 ```
 ![image](https://user-images.githubusercontent.com/26602880/112832872-9ab94e00-909e-11eb-9127-2a864f1a241e.png)
 
-Override and customize the way the layout is split using the `leftSideProps` and `rightSideProps` props. You can pass objects with props which will be destructured to the respective `material-ui`'s `Grid` components which wrap the passed layouts. 
+Override and customize the way the layout is split using the `leftSideProps` and `rightSideProps` props. You can pass objects with props which will be destructured to the respective `material-ui`'s `Grid` components which wrap the passed layouts.
 
 The `component` prop is also supported by each side of the split layout. Example values:
 
