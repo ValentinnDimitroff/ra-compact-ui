@@ -1,15 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Avatar from '@mui/material/Avatar'
+import { useRecordContext } from 'react-admin'
 
-const AvatarField = ({ record, source, size, className }) =>
-    record ? (
+const getOptimizedSrc = (url, size) => `${url}?size=${size}x${size}`
+
+const AvatarField = ({ source, altSource, size, fallback, sx, ...props }) => {
+    const record = useRecordContext(props)
+
+    return record ? (
         <Avatar
-            src={`${record[source]}?size=${size}x${size}`}
-            style={{ width: parseInt(size, 10), height: parseInt(size, 10) }}
-            className={className}
+            src={(record && getOptimizedSrc(record[source], size)) || fallback}
+            sx={{
+                width: (theme) => theme.spacing(size),
+                height: (theme) => theme.spacing(size),
+                ...sx,
+            }}
+            alt={record[altSource]}
+            {...props}
         />
     ) : null
+}
 
 AvatarField.defaultProps = {
     size: '25',
@@ -17,9 +28,10 @@ AvatarField.defaultProps = {
 }
 
 AvatarField.propTypes = {
-    record: PropTypes.string,
     source: PropTypes.string,
+    altSource: PropTypes.string,
     size: PropTypes.string,
+    fallback: PropTypes.string,
     className: PropTypes.string,
 }
 

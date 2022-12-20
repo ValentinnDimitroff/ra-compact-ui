@@ -11,7 +11,7 @@ const RaField = ({ field, record, resource, basePath, ...props }) => (
         className={classnames(`ra-field ra-field-${field.props.source}`, field.props.className)}
         {...sanitizeRestProps(props)}
     >
-        {field.props.addLabel ? (
+        {field.props.label !== false ? (
             <Labeled
                 record={record}
                 resource={resource}

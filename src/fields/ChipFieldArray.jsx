@@ -1,10 +1,12 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useRecordContext } from 'react-admin'
 import Chip from '@mui/material/Chip'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import PropTypes from 'prop-types'
-import React from 'react'
 
-const ChipFieldArray = ({ record, source }) => {
+const ChipFieldArray = ({ source, ...props }) => {
     const isXSmall = useMediaQuery((theme) => theme.breakpoints.down('xs'))
+    const record = useRecordContext(props)
 
     return (
         <ul
@@ -24,13 +26,7 @@ const ChipFieldArray = ({ record, source }) => {
 }
 
 ChipFieldArray.propTypes = {
-    record: PropTypes.object,
     source: PropTypes.string,
-}
-
-ChipFieldArray.defaultProps = {
-    // eslint-disable-next-line react/default-props-match-prop-types
-    addLabel: true,
 }
 
 export default ChipFieldArray

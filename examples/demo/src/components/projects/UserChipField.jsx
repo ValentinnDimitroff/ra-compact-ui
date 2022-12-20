@@ -1,15 +1,17 @@
-import Avatar from '@material-ui/core/Avatar'
 import React from 'react'
-import { ChipField } from 'react-admin'
+import { Avatar } from '@mui/material'
+import { ChipField, useRecordContext } from 'react-admin'
 
-const UserChipField = ({ record, source = 'fullName', ...props }) => {
+const UserChipField = ({ source = 'fullName', compact }) => {
+    const record = useRecordContext()
+
     return (
         <ChipField
             avatar={
                 <Avatar
-                    src={record && record.picture}
+                    src={record?.avatar_url}
                     sx={{
-                        ...(props.compact
+                        ...(compact
                             ? {
                                   marginLeft: '0px !important',
                               }
@@ -18,8 +20,6 @@ const UserChipField = ({ record, source = 'fullName', ...props }) => {
                 />
             }
             source={source}
-            record={record}
-            {...props}
         />
     )
 }

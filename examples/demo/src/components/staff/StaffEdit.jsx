@@ -1,23 +1,33 @@
-import React from 'react';
-import { Edit, TextInput, ArrayInput, SimpleFormIterator } from 'react-admin';
-import { CompactForm, RaBox, RaGrid } from 'ra-compact-ui';
+import React from 'react'
+import { Edit, TextInput, ArrayInput, SimpleFormIterator, Form } from 'react-admin'
+import { Grid } from '@mui/material'
 
-const StaffEdit = props => (
+const firstRowCols = 3
+
+const StaffEdit = (props) => (
     <Edit {...props}>
-        <CompactForm layoutComponents={[RaBox, RaGrid]}>
-            <RaBox display="flex" justifyContent="space-around">
-                <TextInput source="full_name" />
-                <TextInput source="email" />
-            </RaBox>
+        <Form>
+            <Grid container>
+                <Grid item sm={firstRowCols}>
+                    <TextInput source="full_name" />
+                </Grid>
+                <Grid item sm={firstRowCols}>
+                    <TextInput source="email" />
+                </Grid>
+                <Grid item sm={firstRowCols}>
+                    <TextInput source="description" />
+                </Grid>
+                <Grid item sm={firstRowCols}>
+                    <TextInput source="avatar_url" />
+                </Grid>
+            </Grid>
             <ArrayInput source="skills">
                 <SimpleFormIterator>
                     <TextInput source="name" />
                 </SimpleFormIterator>
             </ArrayInput>
-            <TextInput source="description" />
-            <TextInput source="avatar_url" />
-        </CompactForm>
+        </Form>
     </Edit>
-);
+)
 
-export default StaffEdit;
+export default StaffEdit
