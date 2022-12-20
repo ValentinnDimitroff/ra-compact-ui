@@ -1,5 +1,5 @@
 import React from 'react'
- import {
+import {
     Show,
     ReferenceField,
     TextField,
@@ -14,11 +14,7 @@ import UserChipField from './UserChipField'
 
 const ProjectShow = (props) => {
     return (
-        <Show
-            //title={<UserTitle />}
-            //aside={<Aside />}
-            {...props}
-        >
+        <Show {...props}>
             <BoxedShowLayout>
                 <RaBox display="flex">
                     <RaBox
