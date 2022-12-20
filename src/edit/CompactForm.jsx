@@ -5,6 +5,9 @@ import { FormWithRedirect } from 'ra-core'
 import { CardContentInner, FormInput, Toolbar } from 'react-admin'
 import { cloneRecursively, getComponentsNames, isLayoutComponent } from '../core'
 
+/**
+ * @deprecated - version 4.x of react-admin allows flexible layout forms out of the box
+ */
 const CompactForm = (props) => (
     <FormWithRedirect {...props} render={(formProps) => <CompactFormView {...formProps} />} />
 )
