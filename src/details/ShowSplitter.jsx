@@ -1,19 +1,13 @@
-import React, { cloneElement } from 'react';
-import PropTypes from 'prop-types';
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
+import React, { cloneElement } from 'react'
+import PropTypes from 'prop-types'
+import Grid from '@mui/material/Grid'
+import Card from '@mui/material/Card'
 
 const ShowSplitter = ({
     leftSide,
-    leftSideProps: {
-        component: LeftContainer = Card,
-        ...restLeftProps
-    },
+    leftSideProps: { component: LeftContainer = Card, ...restLeftProps },
     rightSide,
-    rightSideProps: {
-        component: RightContainer = Card,
-        ...restRightProps
-    },
+    rightSideProps: { component: RightContainer = Card, ...restRightProps },
     ...props
 }) => (
     <Grid container spacing={4}>
@@ -24,7 +18,7 @@ const ShowSplitter = ({
             <RightContainer>{cloneElement(rightSide, props)}</RightContainer>
         </Grid>
     </Grid>
-);
+)
 
 ShowSplitter.defaultProps = {
     leftSideProps: {
@@ -41,13 +35,13 @@ ShowSplitter.defaultProps = {
         xs: 12,
         component: Card,
     },
-};
+}
 
 ShowSplitter.propTypes = {
     leftSide: PropTypes.element,
     leftSideProps: PropTypes.object,
     rightSide: PropTypes.element,
     rightSideProps: PropTypes.object,
-};
+}
 
-export default ShowSplitter;
+export default ShowSplitter

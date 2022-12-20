@@ -8,31 +8,32 @@ import RaBox from './RaBox'
 test('renders correctly', async () => {
     // Arrange
     const record = {
-        name: "John Doe",
-        age: 23
+        name: 'John Doe',
+        age: 23,
     }
 
     const props = {
         layoutComponents: [RaBox],
-        children: (<RaBox>
+        children: (
             <RaBox>
-                <TextField source="name" />
+                <RaBox>
+                    <TextField source="name" />
+                </RaBox>
+                <RaBox>
+                    <NumberField source="age" />
+                </RaBox>
             </RaBox>
-            <RaBox>
-                <NumberField source="age" />
-            </RaBox>
-        </RaBox>
         ),
         record,
-        resource: "users",
-        basePath: "/users",
-        version: 1
+        resource: 'users',
+        basePath: '/users',
+        version: 1,
     }
 
     const { getByText } = render(<CompactShowLayout {...props} />)
 
-    expect(getByText(record.name)).toBeInTheDocument();
-    expect(getByText(record.age.toString())).toBeInTheDocument();
+    expect(getByText(record.name)).toBeInTheDocument()
+    expect(getByText(record.age.toString())).toBeInTheDocument()
 })
 
 // // test 1 child only

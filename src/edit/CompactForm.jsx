@@ -1,27 +1,20 @@
-import React, { Children, cloneElement } from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { FormWithRedirect } from 'ra-core';
-import { CardContentInner, FormInput, Toolbar } from 'react-admin';
-import { cloneRecursively, getComponentsNames, isLayoutComponent } from '../core';
+import React, { Children, cloneElement } from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
+import { FormWithRedirect } from 'ra-core'
+import { CardContentInner, FormInput, Toolbar } from 'react-admin'
+import { cloneRecursively, getComponentsNames, isLayoutComponent } from '../core'
 
 const CompactForm = (props) => (
-    <FormWithRedirect
-        {...props}
-        render={(formProps) => <CompactFormView {...formProps} />}
-    />
-);
+    <FormWithRedirect {...props} render={(formProps) => <CompactFormView {...formProps} />} />
+)
 
 CompactForm.propTypes = {
     children: PropTypes.node,
     initialValues: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
     mutationMode: PropTypes.oneOf(['pessimistic', 'optimistic', 'undoable']),
     record: PropTypes.object,
-    redirect: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.bool,
-        PropTypes.func,
-    ]),
+    redirect: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.func]),
     save: PropTypes.func,
     saving: PropTypes.bool,
     submitOnEnter: PropTypes.bool,
@@ -30,7 +23,7 @@ CompactForm.propTypes = {
     validate: PropTypes.func,
     version: PropTypes.number,
     sanitizeEmptyValues: PropTypes.bool,
-};
+}
 
 const CompactFormView = ({
     basePath,
@@ -54,17 +47,13 @@ const CompactFormView = ({
     layoutComponents,
     ...rest
 }) => {
-    const layoutComponentsNamesArr = getComponentsNames(layoutComponents);
+    const layoutComponentsNamesArr = getComponentsNames(layoutComponents)
 
     return (
-        <form
-            className={classnames('simple-form', className)}
-            {...sanitizeRestProps(rest)}
-        >
+        <form className={classnames('simple-form', className)} {...sanitizeRestProps(rest)}>
             <Component>
-                {Children.map(
-                    children,
-                    (child) => cloneRecursively(
+                {Children.map(children, (child) =>
+                    cloneRecursively(
                         child,
                         (x) => isLayoutComponent(x, layoutComponentsNamesArr),
                         (x) => (
@@ -76,12 +65,12 @@ const CompactFormView = ({
                                 variant={x.props.variant || variant}
                                 margin={x.props.margin || margin}
                             />
-                        ),
-                    ),
+                        )
+                    )
                 )}
             </Component>
-            {toolbar
-                && cloneElement(toolbar, {
+            {toolbar &&
+                cloneElement(toolbar, {
                     basePath,
                     handleSubmitWithRedirect,
                     handleSubmit,
@@ -96,8 +85,8 @@ const CompactFormView = ({
                     undoable,
                 })}
         </form>
-    );
-};
+    )
+}
 
 CompactFormView.propTypes = {
     basePath: PropTypes.string,
@@ -110,11 +99,7 @@ CompactFormView.propTypes = {
     pristine: PropTypes.bool,
     record: PropTypes.object,
     resource: PropTypes.string,
-    redirect: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.bool,
-        PropTypes.func,
-    ]),
+    redirect: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.func]),
     save: PropTypes.func, // the handler defined in the parent, which triggers the REST submission
     saving: PropTypes.bool,
     submitOnEnter: PropTypes.bool,
@@ -125,13 +110,13 @@ CompactFormView.propTypes = {
     variant: PropTypes.string,
     margin: PropTypes.string,
     layoutComponents: PropTypes.array,
-};
+}
 
 CompactFormView.defaultProps = {
     submitOnEnter: true,
     toolbar: <Toolbar />,
     component: CardContentInner,
-};
+}
 
 const sanitizeRestProps = ({
     active,
@@ -160,6 +145,6 @@ const sanitizeRestProps = ({
     visited,
     __versions,
     ...props
-}) => props;
+}) => props
 
-export default CompactForm;
+export default CompactForm

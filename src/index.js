@@ -1,3 +1,3 @@
-export * from './details';
-export * from './edit';
-export * from './fields';
+export * from './details'
+export * from './edit'
+export * from './fields'

@@ -1,1 +1,1 @@
-export { default as CompactForm } from './CompactForm';
+export { default as CompactForm } from './CompactForm'

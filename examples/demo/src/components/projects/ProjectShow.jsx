@@ -1,22 +1,18 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core';
-import {
-    Show, ReferenceField, TextField, ChipField, DateField,
-    ArrayField, Datagrid, SingleFieldList
-} from 'react-admin';
-import { BoxedShowLayout, RaBox } from 'ra-compact-ui';
-import UserChipField from './UserChipField';
+ import {
+    Show,
+    ReferenceField,
+    TextField,
+    ChipField,
+    DateField,
+    ArrayField,
+    Datagrid,
+    SingleFieldList,
+} from 'react-admin'
+import { BoxedShowLayout, RaBox } from 'ra-compact-ui'
+import UserChipField from './UserChipField'
 
-const useStyles = makeStyles(theme => ({
-    detailsBox: {
-        paddingRight: "50px",
-        borderRight: "solid thin",
-        marginRight: "50px",
-    },
-}));
-
-const ProjectShow = props => {
-    const classes = useStyles();
+const ProjectShow = (props) => {
     return (
         <Show
             //title={<UserTitle />}
@@ -24,10 +20,24 @@ const ProjectShow = props => {
             {...props}
         >
             <BoxedShowLayout>
-                <RaBox display="flex" >
-                    <RaBox display="flex" flexWrap="wrap" flexGrow={4} className={classes.detailsBox}>
+                <RaBox display="flex">
+                    <RaBox
+                        display="flex"
+                        flexWrap="wrap"
+                        flexGrow={4}
+                        sx={{
+                            paddingRight: '50px',
+                            borderRight: 'solid thin',
+                            marginRight: '50px',
+                        }}
+                    >
                         <RaBox flex="0 0 100%" display="flex" justifyContent="space-between">
-                            <ReferenceField label="Client Name" source="client_id" reference="clients" link="show">
+                            <ReferenceField
+                                label="Client Name"
+                                source="client_id"
+                                reference="clients"
+                                link="show"
+                            >
                                 <TextField source="name" />
                             </ReferenceField>
                             <ChipField source="progressStatus" label="Progress Status" />
@@ -40,13 +50,28 @@ const ProjectShow = props => {
                         </RaBox>
                     </RaBox>
                     <RaBox display="inline-flex" flexDirection="column" flexGrow={1}>
-                        <ReferenceField label="Project Manager" source="manager_id" reference="staff" link="show">
+                        <ReferenceField
+                            label="Project Manager"
+                            source="manager_id"
+                            reference="staff"
+                            link="show"
+                        >
                             <UserChipField source="full_name" />
                         </ReferenceField>
-                        <ReferenceField label="Product Owner" source="product_owner_id" reference="staff" link="show">
+                        <ReferenceField
+                            label="Product Owner"
+                            source="product_owner_id"
+                            reference="staff"
+                            link="show"
+                        >
                             <UserChipField source="full_name" />
                         </ReferenceField>
-                        <ReferenceField label="Marketing Specialist" source="marketing_specialist_id" reference="staff" link="show">
+                        <ReferenceField
+                            label="Marketing Specialist"
+                            source="marketing_specialist_id"
+                            reference="staff"
+                            link="show"
+                        >
                             <UserChipField source="full_name" />
                         </ReferenceField>
                     </RaBox>
@@ -58,7 +83,12 @@ const ProjectShow = props => {
                             <TextField source="description" />
                             <ArrayField source="members">
                                 <SingleFieldList linkType={false}>
-                                    <ReferenceField label="Marketing Specialist" source="staff_id" reference="staff" link="show">
+                                    <ReferenceField
+                                        label="Marketing Specialist"
+                                        source="staff_id"
+                                        reference="staff"
+                                        link="show"
+                                    >
                                         <UserChipField source="full_name" />
                                     </ReferenceField>
                                 </SingleFieldList>
@@ -72,4 +102,3 @@ const ProjectShow = props => {
 }
 
 export default ProjectShow
-
