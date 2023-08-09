@@ -26,7 +26,6 @@ test('renders correctly', async () => {
         ),
         record,
         resource: 'users',
-        basePath: '/users',
         version: 1,
     }
 
