@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextField, NumberField } from 'react-admin'
+import { TextField, NumberField, RecordContextProvider } from 'react-admin'
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import CompactShowLayout from './CompactShowLayout'
@@ -24,13 +24,12 @@ test('renders correctly', async () => {
                 </RaBox>
             </RaBox>
         ),
-        record,
         resource: 'users',
         basePath: '/users',
         version: 1,
     }
 
-    const { getByText } = render(<CompactShowLayout {...props} />)
+    const { getByText } = render(<RecordContextProvider value={record}><CompactShowLayout {...props} /></RecordContextProvider>)
 
     expect(getByText(record.name)).toBeInTheDocument()
     expect(getByText(record.age.toString())).toBeInTheDocument()
