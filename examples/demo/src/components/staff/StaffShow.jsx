@@ -26,7 +26,6 @@ const StaffShow = (props) => {
                         <AvatarField
                             source="avatar_url"
                             altSource="full_name"
-                            label={false}
                             size="150px"
                             sx={{
                                 marginBottom: '10px',
